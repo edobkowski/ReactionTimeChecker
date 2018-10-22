@@ -9,7 +9,10 @@ document.body.onkeyup = function(e) {
 	console.log("Key code: " + e.keyCode);
 	const ppButton = document.getElementById("pp-button");
 	if(ppButton.className  === "playing") {
-		const record = songName + "; " + audioFile.currentTime;
+		const fullTime = new Date();
+		const date = fullTime.getFullYear() + "-" + (fullTime.getMonth()+1) + "-" + fullTime.getDate();
+		const time = fullTime.getHours() + ":" + fullTime.getMinutes() + ":" + fullTime.getSeconds() + ":" + fullTime.getMilliseconds();
+		const record = songName + "; " + audioFile.currentTime + "; " + date + "; " + time;
 		data.push(record);
 		console.log("Saved data: " + record);
 	}
@@ -19,8 +22,15 @@ function init() {
     addListeners();
 }
 
-function save(filename) {
-	let dataToSave = "SONG_TITLE; REACTION_TIME\n" + data.join("\n");
+function addListeners() {
+    document.getElementById("pp-button").addEventListener("click", playPause);
+    document.getElementById("load-button").addEventListener("click", loadAudio);
+    document.getElementById("save-button").addEventListener("click", save);
+}
+
+function save() {
+	const filename = document.getElementById("test-id-input").value + ".csv";
+	let dataToSave = "SONG_TITLE; REACTION_TIME; MEASUREMENT_DATE; MEASUREMENT_TIME\n" + data.join("\n");
 	let file = new Blob([dataToSave], {type: "text/plain;charset=utf-8"});
 	if (window.navigator.msSaveOrOpenBlob) // IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
@@ -30,12 +40,14 @@ function save(filename) {
         a.href = url;
         a.download = filename;
         document.body.appendChild(a);
-        a.click();
+        // a.click();
         setTimeout(function() {
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);  
         }, 0); 
     }
+
+    data = [];
 }
 
 function renderWarning() {
@@ -45,7 +57,7 @@ function renderWarning() {
 
 function renderInfo(selectedSong) {
 	const infoSection = document.getElementById("info-section");
-	infoSection.innerHTML = "<p class=\"message info\">Playing song: " + selectedSong + "</p>";
+	infoSection.innerHTML = "<p class=\"message info\">Set song: " + selectedSong + "</p>";
 }
 
 function playPause() {
@@ -71,16 +83,13 @@ function loadAudio() {
 	audioFile = new Audio();
 	const selectedSong = document.getElementById("audio-selector").value;
 	if(selectedSong === "No man no cry") {
-		console.log("Selected song: " + selectedSong);
-		renderInfo(selectedSong);
 		audioFile.src = "../resources/audio/no_man_no_cry.mp3";
+	} else if(selectedSong === "Psychosocial") {
+		audioFile.src = "../resources/audio/psychosocial.mp3"
 	}
 
+	console.log("Selected song: " + selectedSong);
+	renderInfo(selectedSong);
 	songName = selectedSong;
 	audioLoaded = true;
-}
-
-function addListeners() {
-    document.getElementById("pp-button").addEventListener("click", playPause);
-    document.getElementById("load-button").addEventListener("click", loadAudio);
 }

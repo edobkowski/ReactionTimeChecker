@@ -7,30 +7,35 @@
  	<script type="text/javascript" src="../js/sound_scripts.js" defer></script>
 
  </head>
-<body onload="init()" onunload="save('reaction_times.csv')">
- 	<div id="audio-selection-section">
- 		<label>Select audio file:</label>
- 		<select id="audio-selector">
- 			<option>No man no cry</option>
- 		</select>
- 		<button class="load-button" id="load-button"><span>LOAD</span></button>
- 	</div>
- 	<!--<div class="save-section"> 
-	 	<div class="save-button" id="save-button">
-	 		<i class="fas fa-save"></i>
-	 	</div> 		
- 	</div> -->
+<body onload="init()" onbeforeunload="save()">
+	<div class="content">
+	 	<div class="audio-selection-section">
+	 		<label>Enter test id: </label>
+	 		<input type="text" name="test-id" id="test-id-input">
+	 		<br>
+	 		<label>Select audio file:</label>
+	 		<select id="audio-selector">
+	 			<option>No man no cry</option>
+	 			<option>Psychosocial</option>
+	 		</select>
+	 		<br>
+	 		<button class="button load" id="load-button"><span>SET</span></button>
+	 	</div>
 
- 	<div id="info-section">
- 		
- 	</div>
+		<div class="button-section">
+	 		<button class="button save" id="save-button"><i class="fas fa-save"></i> SAVE</button>	
+	 		<br>
+	 		<!-- <button class="button upload" id="upload-button"><i class="fas fa-file-upload"></i> LOAD</button>		 -->
+		</div>
 
- 	<div class="play-section">
-	 	<div class="pause" id="pp-button">
-	 		<i class="fas fa-play"></i>
-	 	</div> 		
- 	</div>
+	 	<div class="play-section">
+		 	<div class="pause" id="pp-button">
+		 		<i class="fas fa-play"></i>
+		 	</div> 		
+	 	</div>
 
-
+	 	<div id="info-section">
+	 	</div>	 	
+	</div>
  </body>
  </html>
