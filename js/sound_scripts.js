@@ -29,7 +29,12 @@ function addListeners() {
 }
 
 function save() {
-	const filename = document.getElementById("test-id-input").value + ".csv";
+	let filename = document.getElementById("test-id-input").value;
+	if(filename === "") {
+		const time = new Date();
+		filename = "results_" + new Date().toLocaleString();
+	} 
+	filename += ".csv";
 	let dataToSave = "SONG_TITLE; REACTION_TIME; MEASUREMENT_DATE; MEASUREMENT_TIME\n" + data.join("\n");
 	let file = new Blob([dataToSave], {type: "text/plain;charset=utf-8"});
 	if (window.navigator.msSaveOrOpenBlob) // IE10+
@@ -40,7 +45,7 @@ function save() {
         a.href = url;
         a.download = filename;
         document.body.appendChild(a);
-        // a.click();
+        a.click();
         setTimeout(function() {
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);  
