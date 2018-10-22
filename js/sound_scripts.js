@@ -85,16 +85,11 @@ function playPause() {
 }
 
 function loadAudio() {
-	audioFile = new Audio();
 	const selectedSong = document.getElementById("audio-selector").value;
-	if(selectedSong === "No man no cry") {
-		audioFile.src = "../resources/audio/no_man_no_cry.mp3";
-	} else if(selectedSong === "Psychosocial") {
-		audioFile.src = "../resources/audio/psychosocial.mp3"
-	}
-
+	songName = selectedSong;
+	audioFile = new Audio();
+	audioFile.src = "../resources/audio/" + selectedSong;
 	console.log("Selected song: " + selectedSong);
 	renderInfo(selectedSong);
-	songName = selectedSong;
 	audioLoaded = true;
 }
