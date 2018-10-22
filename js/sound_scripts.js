@@ -9,12 +9,14 @@ document.body.onkeyup = function(e) {
 	console.log("Key code: " + e.keyCode);
 	const ppButton = document.getElementById("pp-button");
 	if(ppButton.className  === "playing") {
+		const audioTime = audioFile.currentTime;
 		const fullTime = new Date();
 		const date = fullTime.getFullYear() + "-" + (fullTime.getMonth()+1) + "-" + fullTime.getDate();
 		const time = fullTime.getHours() + ":" + fullTime.getMinutes() + ":" + fullTime.getSeconds() + ":" + fullTime.getMilliseconds();
-		const record = songName + "; " + audioFile.currentTime + "; " + date + "; " + time;
+		const record = songName + "; " + audioTime + "; " + date + "; " + time;
 		data.push(record);
 		console.log("Saved data: " + record);
+		renderInfo("Key pressed on audio time: " + audioTime);
 	}
 }
 
@@ -52,6 +54,7 @@ function save() {
         }, 0); 
     }
 
+	renderInfo("Report downloaded: " + filename);
     data = [];
 }
 
@@ -60,9 +63,9 @@ function renderWarning() {
 	infoSection.innerHTML = "<p class=\"message warning\">You have not specified audio file to play!</p>";
 }
 
-function renderInfo(selectedSong) {
+function renderInfo(message) {
 	const infoSection = document.getElementById("info-section");
-	infoSection.innerHTML = "<p class=\"message info\">Set song: " + selectedSong + "</p>";
+	infoSection.innerHTML = "<p class=\"message info\"> " + message + "</p>";
 }
 
 function playPause() {
@@ -86,10 +89,17 @@ function playPause() {
 
 function loadAudio() {
 	const selectedSong = document.getElementById("audio-selector").value;
+	const controllerButton = document.getElementById("pp-button");
 	songName = selectedSong;
+	if(controllerButton.className === "playing") {
+		audioFile.pause();
+		console.log("PAUSE");
+		controllerButton.className = "pause";
+		controllerButton.innerHTML = "<i class=\"fas fa-play\"></i>";
+	}
 	audioFile = new Audio();
 	audioFile.src = "../resources/audio/" + selectedSong;
 	console.log("Selected song: " + selectedSong);
-	renderInfo(selectedSong);
+	renderInfo("Set song: " + selectedSong);
 	audioLoaded = true;
 }
