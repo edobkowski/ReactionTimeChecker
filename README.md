@@ -1,6 +1,6 @@
 # ReactionTimeChecker
 
-## Overwiew
+## Overview
 This JS based web app was created for collecting data about user's reactions to the audio files. The user is to press any key on the keybord (under specified conditions) while listening chosen audio file. The script will generate report containing information about the listened file, time (in seconds) of the record when the keys were pressed, date and time of the measurement. Generated report use semicolon (`;`) as separator;
 
 ## Software installation
