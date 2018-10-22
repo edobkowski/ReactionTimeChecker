@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Check your reaction time</title>
+ 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+ 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+ 	<script type="text/javascript" src="../js/sound_scripts.js" defer></script>
+
+ </head>
+<body onload="init()" onunload="save('reaction_times.csv')">
+ 	<div id="audio-selection-section">
+ 		<label>Select audio file:</label>
+ 		<select id="audio-selector">
+ 			<option>No man no cry</option>
+ 		</select>
+ 		<button class="load-button" id="load-button"><span>LOAD</span></button>
+ 	</div>
+ 	<!--<div class="save-section"> 
+	 	<div class="save-button" id="save-button">
+	 		<i class="fas fa-save"></i>
+	 	</div> 		
+ 	</div> -->
+
+ 	<div id="info-section">
+ 		
+ 	</div>
+
+ 	<div class="play-section">
+	 	<div class="pause" id="pp-button">
+	 		<i class="fas fa-play"></i>
+	 	</div> 		
+ 	</div>
+
+
+ </body>
+ </html>

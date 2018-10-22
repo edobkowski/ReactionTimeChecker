@@ -1,0 +1,160 @@
+body {
+	background: #DDDDDD;
+	color: #000000;
+	font-family: Libre Baskerville;
+    font-weight: normal;
+    font-size: 1.2em;
+    line-height: 1.7em;
+}
+
+select#audio-selector {
+	-webkit-appearance: button;
+	-webkit-border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	-webkit-padding-end: 20px;
+	-webkit-padding-start: 2px;
+	-webkit-user-select: none;
+	background-image: url(../resources/images/selection-drop.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+	background-position: 97% center;
+	background-repeat: no-repeat;
+	border: 1px solid #AAA;
+	color: #555;
+	font-size: inherit;
+	margin: 20px;
+	overflow: hidden;
+	padding: 5px 10px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 300px;
+}
+
+.load-button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.load-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.load-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.load-button:hover span {
+  padding-right: 25px;
+}
+
+.load-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.play-section #pp-button {
+	background-color: #2ECC40;
+	color: #fff;
+	font-size: 100px;
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	margin: auto;
+	text-align: center;
+	border-radius: 50%;
+    outline: none;
+}
+
+.play-section #pp-button i {
+	line-height: 200px;
+}
+
+.play-section .pause i {
+	margin-left: 20px;
+}
+
+.message {
+	font-weight: bold;
+	text-align: center;
+	margin: auto;
+	width: 300px;
+	padding: 10px;
+}
+
+.info {
+	background: #DFF0D8;
+	color: #468847;
+}
+
+.warning {
+	background: #F2DEDE;
+	color: #D9534F;
+}
+
+.play-section .playing:before, .play-section .playing:after {
+	content: '';
+	position: absolute;
+	border: 2px solid #2ECC40;
+	border-radius: 50%;
+	left: -20px;
+	right: -20px;
+	top: -20px;
+	bottom: -20px;
+	animation: animate 1.5s linear infinite;
+	opacity: 0;
+}
+
+.play-section .playing:after{animation-delay: 0.5s}
+@keyframes animate {
+	0%
+	{
+		transform: scale(.5);
+	}
+	50%
+	{
+		opacity: 1;
+	}
+	100%
+	{
+		transform: scale(1.5);
+	}
+}
+/*
+.save-button {
+	background: #CCE5FF;
+	color: #064588;
+	font-size: 30px;
+	border-radius: 5px;
+	height: 50px;
+	width: 50px;
+	margin: auto;
+	text-align: center;
+}
+
+.save-button:hover {
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.save-button i {
+	line-height: 50px;
+}*/
