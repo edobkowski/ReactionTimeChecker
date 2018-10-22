@@ -10,7 +10,7 @@ You do not need to install any further software. To run the application simply o
 - Enter filename for the report or leave it empty to download report with default name (current date & time).
 - Choose desired audio file from the list and clik `SET` button.
 - Play and pause the record with the controller button on the center.
-- To download the report click on `save` button or simply leave the page - file will download automatically.
+- To download the report click on `save` button or simply leave the page - file will be downloaded automatically.
 
 ## Add new audio files
 As the current version of this app doesn't support simple file upload to add new audiofiles please follow the steps:
@@ -27,9 +27,9 @@ As the current version of this app doesn't support simple file upload to add new
 __NOTICE THAT__ you have to put exactly the same name with the file extention between those `<option>` tags as the file you added into `{app_dir}/resources/audio/` directiory!
 
 ## Built With
-HTML5
-CSS3
-ES6
+- HTML5
+- CSS3
+- ES6
 
 ## Author
 Eryk Dobkowski (edobkowski)
