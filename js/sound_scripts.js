@@ -9,15 +9,42 @@ document.body.onkeyup = function(e) {
 	console.log("Key code: " + e.keyCode);
 	const ppButton = document.getElementById("pp-button");
 	if(ppButton.className  === "playing") {
-		const audioTime = audioFile.currentTime;
-		const fullTime = new Date();
-		const date = fullTime.getFullYear() + "-" + (fullTime.getMonth()+1) + "-" + fullTime.getDate();
-		const time = fullTime.getHours() + ":" + fullTime.getMinutes() + ":" + fullTime.getSeconds() + ":" + fullTime.getMilliseconds();
-		const record = songName + "; " + audioTime + "; " + date + "; " + time;
+		const record = generateRecord();
 		data.push(record);
 		console.log("Saved data: " + record);
 		renderInfo("Key pressed on audio time: " + audioTime);
 	}
+}
+
+function generateRecord() {
+	const audioTime = audioFile.currentTime;
+	const fullTime = new Date();
+	let hours = fullTime.getHours();
+	if(hours < 10) {
+		hours = "0" + hours;
+	}
+	let minutes = fullTime.getMinutes();
+	if(minutes < 10) {
+		minutes = "0" + minutes;
+	}
+	let seconds = fullTime.getSeconds();
+	if(seconds < 10) {
+		seconds = "0" + seconds;
+	}
+	let months = fullTime.getMonth() + 1;
+	if(months < 10) {
+		months = "0" + months;
+	}
+	let days = fullTime.getDate() + 1;
+	if(days < 10) {
+		days = "0" + days;
+	}
+
+	const date = fullTime.getFullYear() + "-" + months + "-" + days;
+	const time = hours + ":" + minutes + ":" + seconds + "." + fullTime.getMilliseconds();
+	const record = songName + "; " + audioTime + "; " + date + "; " + time;
+
+	return record;
 }
 
 function init() {
