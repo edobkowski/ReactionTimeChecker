@@ -6,18 +6,17 @@ let audioLoaded = false;
 let data = [];
 
 document.body.onkeyup = function(e) {
-	console.log("Key code: " + e.keyCode);
 	const ppButton = document.getElementById("pp-button");
 	if(ppButton.className  === "playing") {
-		const record = generateRecord();
+		const audioTime = audioFile.currentTime;
+		const record = generateRecord(audioTime);
 		data.push(record);
 		console.log("Saved data: " + record);
 		renderInfo("Key pressed on audio time: " + audioTime);
 	}
 }
 
-function generateRecord() {
-	const audioTime = audioFile.currentTime;
+function generateRecord(audioTime) {
 	const fullTime = new Date();
 	let hours = fullTime.getHours();
 	if(hours < 10) {
