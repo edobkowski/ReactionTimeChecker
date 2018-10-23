@@ -10,7 +10,7 @@ You do not need to install any further software. To run the application simply o
 - Enter filename for the report or leave it empty to download report with default name (current date & time).
 - Choose desired audio file from the list and clik `SET` button.
 - Play and pause the record with the controller button on the center.
-- To download the report click on `save` button or simply leave the page - file will be downloaded automatically.
+- To download the report click on `save` button.
 
 ## Add new audio files
 As the current version of this app doesn't support simple file upload to add new audiofiles please follow the steps:
