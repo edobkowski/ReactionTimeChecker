@@ -16,6 +16,12 @@ document.body.onkeyup = function(e) {
 	}
 }
 
+window.onbeforeunload = function() {
+	if(data.length > 0) {
+		return "Do you want to leave the page without saving report?";
+	}
+}
+
 function generateRecord(audioTime) {
 	const fullTime = new Date();
 	let hours = fullTime.getHours();
