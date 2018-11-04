@@ -10,6 +10,7 @@ You do not need to install any further software. To run the application simply o
 - Enter filename for the report or leave it empty to download report with default name (current date & time).
 - Choose desired audio file from the list and clik `SET` button.
 - Play and pause the record with the controller button on the center.
+- Press any key on the keyboard to save time of your reaction
 - To download the report click on `save` button.
 
 ## Add new audio files
